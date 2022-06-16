@@ -12,7 +12,10 @@ public class MatrizBo {
 	CalculoBo calculoBo;
 
 	public void matrizValid(int[] matriz) throws MatrizNaoQuadraticaException {
-		if (calculoBo.isNumeroQuadratico(matriz.length))
+		double raiz = Math.sqrt(matriz.length);
+		int partedecimal = (int) raiz;
+		double parteFractional = raiz - partedecimal;
+		if (parteFractional != 0)
 			throw new MatrizNaoQuadraticaException();
 	}
 
