@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tiago.j61.projeto.dto.ErroMensageDto;
+import tiago.j61.projeto.dto.ErroMatrizMensageDto;
 import tiago.j61.projeto.dto.MatrixReturnDto;
 import tiago.j61.projeto.exception.NonQuadraticMatrixException;
 import tiago.j61.projeto.facada.MatrixFacada;
@@ -26,7 +26,7 @@ public class MatrizController {
 
 			return new ResponseEntity<>(matrizReturn, HttpStatus.CREATED);
 		} catch (NonQuadraticMatrixException e) {
-			return new ResponseEntity<>(new ErroMensageDto(e.getMessage()), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new ErroMatrizMensageDto(e.getMessage()), HttpStatus.BAD_REQUEST);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
