@@ -14,13 +14,13 @@ public class MatrixFacada {
 	@Autowired
 	private MatrixService matrizBo;
 
-	public MatrixReturnDto flipArray(MatrixRequestDto request)
+	public MatrixReturnDto flipArray(MatrixRequestDto matrixRequestDto)
 			throws NonQuadraticMatrixException, MatrixBadRequestException {
 
-		if (request == null)
+		if (matrixRequestDto == null)
 			throw new MatrixBadRequestException();
 
-		int[] array = request.getArray();
+		int[] array = matrixRequestDto.getArray();
 
 		if (!matrizBo.matrixValid(array))
 			throw new NonQuadraticMatrixException();
