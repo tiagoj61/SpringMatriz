@@ -2,6 +2,7 @@ package tiago.j61.projeto.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 
@@ -20,9 +21,27 @@ class MatrixServiceTests {
 	private MatrixService matrixService;
 
 	@Test
+	@DisplayName("Teste matrix validade for null valid array")
+	void nullValidArray() {
+
+		int[] array = null;
+		boolean isMatrixValid = matrixService.matrixValid(array);
+		assertFalse(isMatrixValid);
+	}
+
+	@Test
+	@DisplayName("Teste for non valid array")
+	void nonValidArray() {
+
+		int[] array = MatrixHelper.generateRandomArray(0);
+		boolean isMatrixValid = matrixService.matrixValid(array);
+		assertFalse(isMatrixValid);
+	}
+
+	@Test
 	@DisplayName("Teste array for smaller quadratic matrix")
-	void canGenerateSmallerQuadraticMatrix() throws NonQuadraticMatrixException {
-		
+	void canGenerateSmallerQuadraticMatrix() {
+
 		int[] array = MatrixHelper.generateRandomArray(1);
 		boolean isMatrixValid = matrixService.matrixValid(array);
 		assertTrue(isMatrixValid);
@@ -30,7 +49,7 @@ class MatrixServiceTests {
 
 	@Test
 	@DisplayName("Teste array for quadratic matrix")
-	void canGenerateQuadraticMatrix() throws NonQuadraticMatrixException {
+	void canGenerateQuadraticMatrix() {
 		int[] array = MatrixHelper.generateRandomArray(10000);
 		boolean isMatrixValid = matrixService.matrixValid(array);
 		assertTrue(isMatrixValid);
@@ -42,6 +61,14 @@ class MatrixServiceTests {
 		int[] array = MatrixHelper.generateRandomArray(3);
 		boolean isMatrizValid = matrixService.matrixValid(array);
 		assertFalse(isMatrizValid);
+	}
+
+	@Test
+	@DisplayName("Teste convert array  null")
+	void arrayToNullMatrix() {
+		int[] array = null;
+		int[][] matrizOriginal = matrixService.arrayToQuadraticMatrix(array);
+		assertNull(matrizOriginal);
 	}
 
 	@Test
@@ -81,8 +108,17 @@ class MatrixServiceTests {
 	}
 
 	@Test
+	@DisplayName("Test flip matrix for null")
+	void flipMatrixNull() {
+
+		int[][] matrizOriginal = null;
+		int[][] matrixFliped = matrixService.flipMatrix(matrizOriginal);
+		assertNull(matrixFliped);
+	}
+
+	@Test
 	@DisplayName("Test flip matrix")
-	void extrairBordasMatrix() {
+	void flipMatrixMatrix() {
 		int rowLength = 4;
 		int colLength = 4;
 

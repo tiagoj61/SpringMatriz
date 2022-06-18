@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class MatrixService {
 
 	public boolean matrixValid(int[] matriz) {
-		if (matriz.length < 1)
+		if (matriz == null || matriz.length < 1)
 			return false;
 
 		double sqrt = Math.sqrt(matriz.length);
@@ -20,6 +20,10 @@ public class MatrixService {
 	}
 
 	public int[][] arrayToQuadraticMatrix(int[] array) {
+
+		if (array == null) {
+			return null;
+		}
 
 		if (array.length == 1) {
 			int[][] matrizGenereted = new int[1][1];
@@ -43,6 +47,10 @@ public class MatrixService {
 	}
 
 	public int[][] flipMatrix(int[][] matrizOriginal) {
+
+		if (matrizOriginal == null) {
+			return null;
+		}
 
 		int rowLength = matrizOriginal.length;
 		int colLength = matrizOriginal[0].length;

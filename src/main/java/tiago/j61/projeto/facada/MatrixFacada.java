@@ -3,7 +3,9 @@ package tiago.j61.projeto.facada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tiago.j61.projeto.dto.MatrixRequestDto;
 import tiago.j61.projeto.dto.MatrixReturnDto;
+import tiago.j61.projeto.exception.MatrixBadRequestException;
 import tiago.j61.projeto.exception.NonQuadraticMatrixException;
 import tiago.j61.projeto.service.MatrixService;
 
@@ -12,7 +14,14 @@ public class MatrixFacada {
 	@Autowired
 	private MatrixService matrizBo;
 
-	public MatrixReturnDto flipArray(int[] array) throws NonQuadraticMatrixException {
+	public MatrixReturnDto flipArray(MatrixRequestDto request)
+			throws NonQuadraticMatrixException, MatrixBadRequestException {
+
+		if (request == null)
+			throw new MatrixBadRequestException();
+
+		int[] array = request.getArray();
+
 		if (!matrizBo.matrixValid(array))
 			throw new NonQuadraticMatrixException();
 

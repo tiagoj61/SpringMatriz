@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import tiago.j61.projeto.dto.MatrixRequestDto;
 import tiago.j61.projeto.dto.MatrixReturnDto;
+import tiago.j61.projeto.exception.MatrixBadRequestException;
 import tiago.j61.projeto.exception.NonQuadraticMatrixException;
 import tiago.j61.projeto.helper.MatrixHelper;
 
@@ -21,25 +23,56 @@ class MatrixFacadaTests {
 	private MatrixFacada matrixFacada;
 
 	@Test
-	@DisplayName("Teste facada dosent throw")
-	void arrayNotQuadratic() throws NonQuadraticMatrixException {
-		int[] array = MatrixHelper.generateRandomArray(1);
-		assertDoesNotThrow(() -> matrixFacada.flipArray(array));
+	@DisplayName("Teste facada null")
+	void nullDto() {
+
+		MatrixRequestDto dto = null;
+
+		assertThrows(MatrixBadRequestException.class, () -> matrixFacada.flipArray(dto));
 	}
 
 	@Test
-	@DisplayName("Teste facada throw")
-	void arrayQuadratic() throws NonQuadraticMatrixException {
+	@DisplayName("Teste facada dosent throw")
+	void arrayNotQuadratic() {
+		int[] array = MatrixHelper.generateRandomArray(1);
+
+		MatrixRequestDto dto = new MatrixRequestDto();
+		dto.setArray(array);
+
+		assertDoesNotThrow(() -> matrixFacada.flipArray(dto));
+	}
+
+	@Test
+	@DisplayName("Teste facada throw for non quadratic")
+	void arrayNonQuadratic() {
 		int[] array = MatrixHelper.generateRandomArray(2);
-		assertThrows(NonQuadraticMatrixException.class, () -> matrixFacada.flipArray(array));
+
+		MatrixRequestDto dto = new MatrixRequestDto();
+		dto.setArray(array);
+
+		assertThrows(NonQuadraticMatrixException.class, () -> matrixFacada.flipArray(dto));
+	}
+
+	@Test
+	@DisplayName("Teste facada throw for 0")
+	void arrayZero() {
+		int[] array = MatrixHelper.generateRandomArray(0);
+
+		MatrixRequestDto dto = new MatrixRequestDto();
+		dto.setArray(array);
+
+		assertThrows(NonQuadraticMatrixException.class, () -> matrixFacada.flipArray(dto));
 	}
 
 	@Test
 	@DisplayName("Teste facada flip smaller array")
-	void flipSmallerArray() throws NonQuadraticMatrixException {
+	void flipSmallerArray() {
 		int[] array = MatrixHelper.generateRandomArray(1);
 
-		MatrixReturnDto matrixReturnDto = matrixFacada.flipArray(array);
+		MatrixRequestDto dto = new MatrixRequestDto();
+		dto.setArray(array);
+
+		MatrixReturnDto matrixReturnDto = assertDoesNotThrow(() -> matrixFacada.flipArray(dto));
 
 		assertNotNull(matrixReturnDto);
 		assertNotEquals(matrixReturnDto.getMatrixOriginal().length, 0);
@@ -50,10 +83,13 @@ class MatrixFacadaTests {
 
 	@Test
 	@DisplayName("Teste facada flip array")
-	void flipArray() throws NonQuadraticMatrixException {
+	void flipArray() {
 		int[] array = MatrixHelper.generateRandomArray(100);
 
-		MatrixReturnDto matrixReturnDto = matrixFacada.flipArray(array);
+		MatrixRequestDto dto = new MatrixRequestDto();
+		dto.setArray(array);
+
+		MatrixReturnDto matrixReturnDto = assertDoesNotThrow(() -> matrixFacada.flipArray(dto));
 
 		assertNotNull(matrixReturnDto);
 		assertNotEquals(matrixReturnDto.getMatrixOriginal().length, 0);
