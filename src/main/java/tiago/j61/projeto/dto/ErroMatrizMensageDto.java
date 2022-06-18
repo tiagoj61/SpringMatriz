@@ -22,4 +22,12 @@ public class ErroMatrizMensageDto implements Serializable {
 		this.mensagem = mensagem;
 	}
 
+	public List<Integer> getMatrix() {
+		return matrix;
+	}
+
+	public void setMatrix(List<Integer> matrix) {
+		this.matrix = matrix;
+	}
+
 }

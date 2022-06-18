@@ -18,21 +18,12 @@ public class MatrixFacada {
 
 		MatrixReturnDto matrizReturn = new MatrixReturnDto();
 
-		if (array.length == 1) {
-			int[][] matrizGenereted = new int[1][1];
-			matrizGenereted[0][0] = array[0];
+		int[][] matrizGenereted = matrizBo.arrayToQuadraticMatrix(array);
+		int[][] matrizFliped = matrizBo.flipMatrix(matrizGenereted);
 
-			matrizReturn.setMatrizOriginal(matrizGenereted);
-			matrizReturn.setMatrizFliped(matrizGenereted);
-		} else {
+		matrizReturn.setMatrixOriginal(matrizGenereted);
+		matrizReturn.setMatrixFliped(matrizFliped);
 
-			int[][] matrizGenereted = matrizBo.arrayToQuadraticMatrix(array);
-			int[][] matrizFliped = matrizBo.flipMatrix(matrizGenereted);
-
-			matrizReturn.setMatrizOriginal(matrizGenereted);
-			matrizReturn.setMatrizFliped(matrizFliped);
-		}
-		
 		return matrizReturn;
 	}
 }

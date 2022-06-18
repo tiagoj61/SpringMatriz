@@ -3,23 +3,23 @@ package tiago.j61.projeto.dto;
 import java.io.Serializable;
 
 public class MatrixReturnDto implements Serializable {
-	private int[][] matrizOriginal;
-	private int[][] matrizFliped;
+	private int[][] matrixOriginal;
+	private int[][] matrixFliped;
 
-	public int[][] getMatrizOriginal() {
-		return matrizOriginal;
+	public int[][] getMatrixOriginal() {
+		return matrixOriginal;
 	}
 
-	public void setMatrizOriginal(int[][] matrizOriginal) {
-		this.matrizOriginal = matrizOriginal;
+	public void setMatrixOriginal(int[][] matrixOriginal) {
+		this.matrixOriginal = matrixOriginal;
 	}
 
-	public int[][] getMatrizFliped() {
-		return matrizFliped;
+	public int[][] getMatrixFliped() {
+		return matrixFliped;
 	}
 
-	public void setMatrizFliped(int[][] matrizFliped) {
-		this.matrizFliped = matrizFliped;
+	public void setMatrixFliped(int[][] matrixFliped) {
+		this.matrixFliped = matrixFliped;
 	}
 
 }

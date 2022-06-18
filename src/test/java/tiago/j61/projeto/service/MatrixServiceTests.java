@@ -3,6 +3,7 @@ package tiago.j61.projeto.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,7 @@ class MatrixServiceTests {
 	@Test
 	@DisplayName("Teste array for smaller quadratic matrix")
 	void canGenerateSmallerQuadraticMatrix() throws NonQuadraticMatrixException {
-
+		
 		int[] array = MatrixHelper.generateRandomArray(1);
 		boolean isMatrixValid = matrixService.matrixValid(array);
 		assertTrue(isMatrixValid);
@@ -30,7 +31,7 @@ class MatrixServiceTests {
 	@Test
 	@DisplayName("Teste array for quadratic matrix")
 	void canGenerateQuadraticMatrix() throws NonQuadraticMatrixException {
-		int[] array = MatrixHelper.generateRandomArray(100);
+		int[] array = MatrixHelper.generateRandomArray(10000);
 		boolean isMatrixValid = matrixService.matrixValid(array);
 		assertTrue(isMatrixValid);
 	}
@@ -64,7 +65,7 @@ class MatrixServiceTests {
 	@Test
 	@DisplayName("Teste convert array to matrix")
 	void arrayToMatrix() {
-		int[] array = MatrixHelper.generateRandomArray(100);
+		int[] array = MatrixHelper.generateRandomArray(10000);
 		int[][] matrizOriginal = matrixService.arrayToQuadraticMatrix(array);
 
 		int matrizRowColLength = (int) Math.sqrt(array.length);
@@ -82,8 +83,8 @@ class MatrixServiceTests {
 	@Test
 	@DisplayName("Test flip matrix")
 	void extrairBordasMatrix() {
-		int rowLength = 3;
-		int colLength = 3;
+		int rowLength = 4;
+		int colLength = 4;
 
 		int[][] matrizOriginal = MatrixHelper.generateRandomMatrix(rowLength, colLength);
 		int[][] matrixFliped = matrixService.flipMatrix(matrizOriginal);
@@ -119,10 +120,7 @@ class MatrixServiceTests {
 				} else {
 					assertEquals(matrixFliped[row][col], matrizOriginal[row][col]);
 				}
-
-				System.out.print(matrizOriginal[row][col] + " ");
 			}
-			System.out.println();
 		}
 		MatrixHelper.printMatrix(matrizOriginal);
 		MatrixHelper.printMatrix(matrixFliped);

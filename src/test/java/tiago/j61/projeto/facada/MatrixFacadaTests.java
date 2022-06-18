@@ -42,10 +42,10 @@ class MatrixFacadaTests {
 		MatrixReturnDto matrixReturnDto = matrixFacada.flipArray(array);
 
 		assertNotNull(matrixReturnDto);
-		assertNotEquals(matrixReturnDto.getMatrizOriginal().length, 0);
-		assertNotEquals(matrixReturnDto.getMatrizOriginal()[0].length, 0);
-		assertNotEquals(matrixReturnDto.getMatrizFliped().length, 0);
-		assertNotEquals(matrixReturnDto.getMatrizFliped()[0].length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixOriginal().length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixOriginal()[0].length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixFliped().length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixFliped()[0].length, 0);
 	}
 
 	@Test
@@ -56,10 +56,10 @@ class MatrixFacadaTests {
 		MatrixReturnDto matrixReturnDto = matrixFacada.flipArray(array);
 
 		assertNotNull(matrixReturnDto);
-		assertNotEquals(matrixReturnDto.getMatrizOriginal().length, 0);
-		assertNotEquals(matrixReturnDto.getMatrizOriginal()[0].length, 0);
-		assertNotEquals(matrixReturnDto.getMatrizFliped().length, 0);
-		assertNotEquals(matrixReturnDto.getMatrizFliped()[0].length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixOriginal().length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixOriginal()[0].length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixFliped().length, 0);
+		assertNotEquals(matrixReturnDto.getMatrixFliped()[0].length, 0);
 	}
 
 }

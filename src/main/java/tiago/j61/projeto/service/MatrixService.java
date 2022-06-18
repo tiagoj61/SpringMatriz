@@ -6,15 +6,27 @@ import org.springframework.stereotype.Service;
 public class MatrixService {
 
 	public boolean matrixValid(int[] matriz) {
+		if (matriz.length < 1)
+			return false;
+
 		double sqrt = Math.sqrt(matriz.length);
 		int decimal = (int) sqrt;
 		double fraction = sqrt - decimal;
+
 		if (fraction != 0)
 			return false;
+
 		return true;
 	}
 
 	public int[][] arrayToQuadraticMatrix(int[] array) {
+
+		if (array.length == 1) {
+			int[][] matrizGenereted = new int[1][1];
+			matrizGenereted[0][0] = array[0];
+			return matrizGenereted;
+		}
+
 		int matrizRowColLength = (int) Math.sqrt(array.length);
 
 		int[][] matrizGenereted = new int[matrizRowColLength][matrizRowColLength];
@@ -31,8 +43,15 @@ public class MatrixService {
 	}
 
 	public int[][] flipMatrix(int[][] matrizOriginal) {
+
 		int rowLength = matrizOriginal.length;
 		int colLength = matrizOriginal[0].length;
+
+		if (rowLength == 1 && colLength == 1) {
+			int[][] matrizGenereted = new int[1][1];
+			matrizGenereted[0][0] = matrizOriginal[0][0];
+			return matrizGenereted;
+		}
 
 		int[][] matrizFliped = new int[rowLength][colLength];
 
