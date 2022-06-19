@@ -67,7 +67,15 @@ O projeto possui um Swagger embarcado para a realização de teste, acessível e
 ## 🛠️ Rodando o projeto
 
 Partindo do pressuposto que o java e o maven já encontram se instalados, além disso a porta 8080 não pode estar em uso,
-para rodar o projeto é necessário baixar o projeto atravez do comando ‘git clone https://github.com/tiagoj61/SpringMatriz.git’, então navegar ate a pasta do projeto e rodar o comando ‘mvn spring-boot:run’, assim será possível utilizar as funcionalidades descritas acima.
+para rodar o projeto é necessário baixa-lo,
+```
+git clone https://github.com/tiagoj61/SpringMatriz.git
+``` 
+navegar até a pasta do projeto e rodar o seguinte comando:
+```
+mvn spring-boot:run
+```
+assim será possível utilizar as funcionalidades descritas acima.
 
 ## ☔ Testes
 
