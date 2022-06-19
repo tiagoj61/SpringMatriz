@@ -77,6 +77,11 @@ mvn spring-boot:run
 ```
 assim será possível utilizar as funcionalidades descritas acima.
 
+Ainda é possível rodar o projeto fazendo o download do zip e rodando através do comando:
+```
+mvnw spring-boot:run
+```
+
 ## ☔ Testes
 
 Os teste do sistema são executados através do comando ‘mvn clean install’ e a resposta é exibida no console.
