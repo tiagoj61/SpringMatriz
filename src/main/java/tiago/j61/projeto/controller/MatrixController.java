@@ -23,7 +23,7 @@ public class MatrixController {
 	@Autowired
 	private MatrixFacada matrizFacada;
 
-	@ApiOperation(value = "Generate quadratic matrix from array and rotate", response = MatrixReturnDto.class, tags = "matrix")
+	@ApiOperation(value = "Generate quadratic matrix from array and rotate", response = MatrixReturnDto.class, tags = "Matrix")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created|Rotated", response = MatrixReturnDto.class),
 			@ApiResponse(code = 400, message = "Array cannot generate a quadratic matrix!", response = ErroMatrixMensageDto.class),
 			@ApiResponse(code = 500, message = "Internal server error!") })

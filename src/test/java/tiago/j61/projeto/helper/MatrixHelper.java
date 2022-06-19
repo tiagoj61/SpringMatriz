@@ -1,5 +1,8 @@
 package tiago.j61.projeto.helper;
 
+import tiago.j61.projeto.dto.MatrixRequestDto;
+import tiago.j61.projeto.dto.MatrixReturnDto;
+
 public class MatrixHelper {
 
 	public static int[] generateRandomArray(int length) {
@@ -18,6 +21,17 @@ public class MatrixHelper {
 			}
 		}
 		return matriz;
+	}
+
+	public static MatrixRequestDto generateMatrixRequestDto(boolean isQuadraticMatrix) {
+		MatrixRequestDto dto = new MatrixRequestDto();
+		dto.setArray(generateRandomArray(isQuadraticMatrix ? 1 : 2));
+		return dto;
+	}
+
+	public static MatrixRequestDto generateMatrixRequestWithoutArrrayDto() {
+		MatrixRequestDto dto = new MatrixRequestDto();
+		return dto;
 	}
 
 	public static void printMatrix(int[][] matrix) {

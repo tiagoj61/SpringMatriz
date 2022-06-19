@@ -23,7 +23,6 @@ class MatrixServiceTests {
 	@Test
 	@DisplayName("Teste matrix validade for null valid array")
 	void nullValidArray() {
-
 		int[] array = null;
 		boolean isMatrixValid = matrixService.matrixValid(array);
 		assertFalse(isMatrixValid);
@@ -158,7 +157,5 @@ class MatrixServiceTests {
 				}
 			}
 		}
-		MatrixHelper.printMatrix(matrizOriginal);
-		MatrixHelper.printMatrix(matrixFliped);
 	}
 }
