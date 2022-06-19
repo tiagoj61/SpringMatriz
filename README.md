@@ -6,11 +6,11 @@
 
 ## Tabela de conteúdos 
 
-* [Descrição](#descrição)
-* [Funcionalidades do projeto](#funcionalidades-do-projeto)
-* [ 🛠️ Rodando o projeto](#rodando-o-projeto)
-* [☔ Testes](#testes)
-* [✔️ Tecnologias utilizadas](#✔️-tecnologias-utilizadas)
+* [Descrição](#----descrição)
+* [:hammer: Funcionalidades do projeto](#hammer-funcionalidades-do-projeto)
+* [ 🛠️ Rodando o projeto](#%EF%B8%8F-rodando-o-projeto)
+* [☔ Testes](#-testes)
+* [✔️ Tecnologias utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
 
 <h4 align="center"> 
    Descrição
